@@ -6,7 +6,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 const routes: Routes = [
   {path:'flight-comments/:flightId', component: FlightCommentsComponent},
-  {path:'', redirectTo: '/flight-comments/0000',pathMatch: 'full'},
+  {path:'', redirectTo: '/flight-comments',pathMatch: 'full'},
   {path:'**', component: PageNotFoundComponent }
 ];
 

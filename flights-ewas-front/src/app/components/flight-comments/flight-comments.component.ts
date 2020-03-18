@@ -21,8 +21,8 @@ export class FlightCommentsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.GetComments();
     this.GetId();
+    this.GetComments();
   }
 
   GetId(){
