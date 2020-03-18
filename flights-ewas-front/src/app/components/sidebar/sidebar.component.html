@@ -1,0 +1,5 @@
+<div class="sidenav">
+  <h2>Flights</h2>
+  <hr/>
+  <a *ngFor="let flight of flights" [routerLink]="'/flight-comments/'+flight.flightId">{{flight.flightId}}</a>
+</div>

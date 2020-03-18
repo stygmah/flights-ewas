@@ -1,0 +1,29 @@
+
+<div [ngClass]="editingComment ? 'comment-box' : ''">
+    <button *ngIf="!editingComment" class="btn btn-dark" (click)="ToggleCommentEditor()">Create Comment</button>
+    <div *ngIf="editingComment">
+        <label>Publish comment</label>
+        <form name="form" (ngSubmit)="onSubmit(f)"  #f="ngForm">
+            <div class="form-group" >
+                <label>User ID</label>
+                <input type="number" name="userId" id="userId" class="form-control" #userId="ngModel" [ngClass]="(!userId.valid && userId.touched) ? 'has-error' : ''" required  ngModel/>
+                <span class="help-block" *ngIf="!userId.valid && userId.touched">User ID is required</span>
+            </div>
+            <div class="form-group" >
+                <label>Comment</label>
+                <textarea  name="comment" id="comment" class="form-control" #comment="ngModel" [ngClass]="(!comment.valid && comment.touched) ? 'has-error' : ''" rows="5" required ngModel></textarea>
+                <span class="help-block" *ngIf="!comment.valid && comment.touched">comment is required</span>
+            </div>
+            <div class="form-group" >
+                <label>Tags <small>(separated by coma)</small></label>
+                <input  name="tags" id="tags" class="form-control" #tags="ngModel"  ngModel/>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-dark" [disabled]="!f.valid || f.submitted">Submit Comment</button>
+                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+        </form>
+    </div>
+  </div>
+  

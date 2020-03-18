@@ -1,0 +1,6 @@
+
+<div class="comment-view">
+    <h1>Comments<small>(flight: {{selectedId}})</small></h1>
+    <app-comment-table [comments]="comments"></app-comment-table>
+    <app-comment-form [flightId]="selectedId" (reloadComments)="GetComments()"></app-comment-form>
+</div>
